@@ -12,7 +12,7 @@ const App: React.FC = () => {
         </p>
         <a
           className="App-link"
-          href="CsvImport"
+          href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
