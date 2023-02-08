@@ -1,0 +1,7 @@
+overwrite: true
+schema: "https://scoremanager.hasura.app/v1/graphql"
+documents: "src/graphql/**/*.graphql"
+generates:
+  src/graphql/generated/:
+    preset: "client"
+    plugins: ["typed-document-node"]
