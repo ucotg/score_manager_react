@@ -1,0 +1,10 @@
+query Chord {
+  music(where: { genre: { _eq: "CHORD" } }) {
+    genre
+    bpm
+    difficulty
+    level
+    notes
+    title
+  }
+}
