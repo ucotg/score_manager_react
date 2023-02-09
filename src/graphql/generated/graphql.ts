@@ -87,6 +87,7 @@ export type Musics = {
   __typename?: "musics";
   bpm: Scalars["String"];
   difficulty: Scalars["String"];
+  exscore?: Maybe<Scalars["Int"]>;
   genre: Scalars["String"];
   level: Scalars["Int"];
   notes: Scalars["Int"];
@@ -126,6 +127,7 @@ export type Musics_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Musics_Avg_Fields = {
   __typename?: "musics_avg_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -138,6 +140,7 @@ export type Musics_Bool_Exp = {
   _or?: InputMaybe<Array<Musics_Bool_Exp>>;
   bpm?: InputMaybe<String_Comparison_Exp>;
   difficulty?: InputMaybe<String_Comparison_Exp>;
+  exscore?: InputMaybe<Int_Comparison_Exp>;
   genre?: InputMaybe<String_Comparison_Exp>;
   level?: InputMaybe<Int_Comparison_Exp>;
   notes?: InputMaybe<Int_Comparison_Exp>;
@@ -153,6 +156,7 @@ export enum Musics_Constraint {
 
 /** input type for incrementing numeric columns in table "musics" */
 export type Musics_Inc_Input = {
+  exscore?: InputMaybe<Scalars["Int"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   version?: InputMaybe<Scalars["float8"]>;
@@ -162,6 +166,7 @@ export type Musics_Inc_Input = {
 export type Musics_Insert_Input = {
   bpm?: InputMaybe<Scalars["String"]>;
   difficulty?: InputMaybe<Scalars["String"]>;
+  exscore?: InputMaybe<Scalars["Int"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
@@ -174,6 +179,7 @@ export type Musics_Max_Fields = {
   __typename?: "musics_max_fields";
   bpm?: Maybe<Scalars["String"]>;
   difficulty?: Maybe<Scalars["String"]>;
+  exscore?: Maybe<Scalars["Int"]>;
   genre?: Maybe<Scalars["String"]>;
   level?: Maybe<Scalars["Int"]>;
   notes?: Maybe<Scalars["Int"]>;
@@ -186,6 +192,7 @@ export type Musics_Min_Fields = {
   __typename?: "musics_min_fields";
   bpm?: Maybe<Scalars["String"]>;
   difficulty?: Maybe<Scalars["String"]>;
+  exscore?: Maybe<Scalars["Int"]>;
   genre?: Maybe<Scalars["String"]>;
   level?: Maybe<Scalars["Int"]>;
   notes?: Maybe<Scalars["Int"]>;
@@ -213,6 +220,7 @@ export type Musics_On_Conflict = {
 export type Musics_Order_By = {
   bpm?: InputMaybe<Order_By>;
   difficulty?: InputMaybe<Order_By>;
+  exscore?: InputMaybe<Order_By>;
   genre?: InputMaybe<Order_By>;
   level?: InputMaybe<Order_By>;
   notes?: InputMaybe<Order_By>;
@@ -233,6 +241,8 @@ export enum Musics_Select_Column {
   /** column name */
   Difficulty = "difficulty",
   /** column name */
+  Exscore = "exscore",
+  /** column name */
   Genre = "genre",
   /** column name */
   Level = "level",
@@ -248,6 +258,7 @@ export enum Musics_Select_Column {
 export type Musics_Set_Input = {
   bpm?: InputMaybe<Scalars["String"]>;
   difficulty?: InputMaybe<Scalars["String"]>;
+  exscore?: InputMaybe<Scalars["Int"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
@@ -258,6 +269,7 @@ export type Musics_Set_Input = {
 /** aggregate stddev on columns */
 export type Musics_Stddev_Fields = {
   __typename?: "musics_stddev_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -266,6 +278,7 @@ export type Musics_Stddev_Fields = {
 /** aggregate stddev_pop on columns */
 export type Musics_Stddev_Pop_Fields = {
   __typename?: "musics_stddev_pop_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -274,6 +287,7 @@ export type Musics_Stddev_Pop_Fields = {
 /** aggregate stddev_samp on columns */
 export type Musics_Stddev_Samp_Fields = {
   __typename?: "musics_stddev_samp_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -291,6 +305,7 @@ export type Musics_Stream_Cursor_Input = {
 export type Musics_Stream_Cursor_Value_Input = {
   bpm?: InputMaybe<Scalars["String"]>;
   difficulty?: InputMaybe<Scalars["String"]>;
+  exscore?: InputMaybe<Scalars["Int"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
@@ -301,6 +316,7 @@ export type Musics_Stream_Cursor_Value_Input = {
 /** aggregate sum on columns */
 export type Musics_Sum_Fields = {
   __typename?: "musics_sum_fields";
+  exscore?: Maybe<Scalars["Int"]>;
   level?: Maybe<Scalars["Int"]>;
   notes?: Maybe<Scalars["Int"]>;
   version?: Maybe<Scalars["float8"]>;
@@ -312,6 +328,8 @@ export enum Musics_Update_Column {
   Bpm = "bpm",
   /** column name */
   Difficulty = "difficulty",
+  /** column name */
+  Exscore = "exscore",
   /** column name */
   Genre = "genre",
   /** column name */
@@ -336,6 +354,7 @@ export type Musics_Updates = {
 /** aggregate var_pop on columns */
 export type Musics_Var_Pop_Fields = {
   __typename?: "musics_var_pop_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -344,6 +363,7 @@ export type Musics_Var_Pop_Fields = {
 /** aggregate var_samp on columns */
 export type Musics_Var_Samp_Fields = {
   __typename?: "musics_var_samp_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -352,6 +372,7 @@ export type Musics_Var_Samp_Fields = {
 /** aggregate variance on columns */
 export type Musics_Variance_Fields = {
   __typename?: "musics_variance_fields";
+  exscore?: Maybe<Scalars["Float"]>;
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
   version?: Maybe<Scalars["Float"]>;
@@ -552,6 +573,26 @@ export type NotesQuery = {
   }>;
 };
 
+export type UpdateAnotherScoreMutationVariables = Exact<{
+  title: Scalars["String"];
+  exscore: Scalars["Int"];
+}>;
+
+export type UpdateAnotherScoreMutation = {
+  __typename?: "mutation_root";
+  update_musics_by_pk?: { __typename?: "musics"; exscore?: number | null } | null;
+};
+
+export type UpdateLeggendariaScoreMutationVariables = Exact<{
+  title: Scalars["String"];
+  exscore: Scalars["Int"];
+}>;
+
+export type UpdateLeggendariaScoreMutation = {
+  __typename?: "mutation_root";
+  update_musics_by_pk?: { __typename?: "musics"; exscore?: number | null } | null;
+};
+
 export const AllMusicDocument = {
   kind: "Document",
   definitions: [
@@ -695,3 +736,143 @@ export const NotesDocument = {
     },
   ],
 } as unknown as DocumentNode<NotesQuery, NotesQueryVariables>;
+export const UpdateAnotherScoreDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "UpdateAnotherScore" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "title" } },
+          type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "String" } } },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "exscore" } },
+          type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "Int" } } },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "update_musics_by_pk" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "pk_columns" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "title" },
+                      value: { kind: "Variable", name: { kind: "Name", value: "title" } },
+                    },
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "difficulty" },
+                      value: { kind: "StringValue", value: "ANOTHER", block: false },
+                    },
+                  ],
+                },
+              },
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "_set" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "exscore" },
+                      value: { kind: "Variable", name: { kind: "Name", value: "exscore" } },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [{ kind: "Field", name: { kind: "Name", value: "exscore" } }],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<UpdateAnotherScoreMutation, UpdateAnotherScoreMutationVariables>;
+export const UpdateLeggendariaScoreDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "UpdateLeggendariaScore" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "title" } },
+          type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "String" } } },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "exscore" } },
+          type: { kind: "NonNullType", type: { kind: "NamedType", name: { kind: "Name", value: "Int" } } },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "update_musics_by_pk" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "pk_columns" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "title" },
+                      value: { kind: "Variable", name: { kind: "Name", value: "title" } },
+                    },
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "difficulty" },
+                      value: { kind: "StringValue", value: "LEGGENDARIA", block: false },
+                    },
+                  ],
+                },
+              },
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "_set" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "exscore" },
+                      value: { kind: "Variable", name: { kind: "Name", value: "exscore" } },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [{ kind: "Field", name: { kind: "Name", value: "exscore" } }],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<UpdateLeggendariaScoreMutation, UpdateLeggendariaScoreMutationVariables>;

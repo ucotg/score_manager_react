@@ -1,0 +1,5 @@
+mutation UpdateLeggendariaScore($title: String!, $exscore: Int!) {
+  update_musics_by_pk(pk_columns: { title: $title, difficulty: "LEGGENDARIA" }, _set: { exscore: $exscore }) {
+    exscore
+  }
+}
