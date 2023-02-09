@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import CsvImport from "./pages/CsvImport";
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <Route path={`/`} element={<Home />} />
         <Route path={`/register/`} element={<Register />} />
         <Route path={`/login/`} element={<Login />} />
+        <Route path={`/CsvImport/`} element={<CsvImport />} />
       </Routes>
     </BrowserRouter>
   );

@@ -5,7 +5,8 @@ const Home: React.FC = () => {
     <>
       <h1>ホーム</h1>
       <div>
-        新規登録は<Link to={`/register/`}>こちら</Link>
+        新規登録は<Link to={`/register/`}>こちら</Link> <br />
+        CSVインポートは<Link to={`/csvImport/`}>こちら</Link>
       </div>
     </>
   );
