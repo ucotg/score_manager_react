@@ -18,6 +18,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  float8: any;
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
@@ -74,144 +75,165 @@ export enum Cursor_Ordering {
   Desc = "DESC",
 }
 
-/** columns and relationships of "music" */
-export type Music = {
-  __typename?: "music";
+/** Boolean expression to compare columns of type "float8". All fields are combined with logical 'AND'. */
+export type Float8_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars["float8"]>;
+  _gt?: InputMaybe<Scalars["float8"]>;
+  _gte?: InputMaybe<Scalars["float8"]>;
+  _in?: InputMaybe<Array<Scalars["float8"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["float8"]>;
+  _lte?: InputMaybe<Scalars["float8"]>;
+  _neq?: InputMaybe<Scalars["float8"]>;
+  _nin?: InputMaybe<Array<Scalars["float8"]>>;
+};
+
+/** columns and relationships of "musics" */
+export type Musics = {
+  __typename?: "musics";
   bpm: Scalars["String"];
   difficulty: Scalars["String"];
   genre: Scalars["String"];
   level: Scalars["Int"];
   notes: Scalars["Int"];
   title: Scalars["String"];
+  version: Scalars["float8"];
 };
 
-/** aggregated selection of "music" */
-export type Music_Aggregate = {
-  __typename?: "music_aggregate";
-  aggregate?: Maybe<Music_Aggregate_Fields>;
-  nodes: Array<Music>;
+/** aggregated selection of "musics" */
+export type Musics_Aggregate = {
+  __typename?: "musics_aggregate";
+  aggregate?: Maybe<Musics_Aggregate_Fields>;
+  nodes: Array<Musics>;
 };
 
-/** aggregate fields of "music" */
-export type Music_Aggregate_Fields = {
-  __typename?: "music_aggregate_fields";
-  avg?: Maybe<Music_Avg_Fields>;
+/** aggregate fields of "musics" */
+export type Musics_Aggregate_Fields = {
+  __typename?: "musics_aggregate_fields";
+  avg?: Maybe<Musics_Avg_Fields>;
   count: Scalars["Int"];
-  max?: Maybe<Music_Max_Fields>;
-  min?: Maybe<Music_Min_Fields>;
-  stddev?: Maybe<Music_Stddev_Fields>;
-  stddev_pop?: Maybe<Music_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Music_Stddev_Samp_Fields>;
-  sum?: Maybe<Music_Sum_Fields>;
-  var_pop?: Maybe<Music_Var_Pop_Fields>;
-  var_samp?: Maybe<Music_Var_Samp_Fields>;
-  variance?: Maybe<Music_Variance_Fields>;
+  max?: Maybe<Musics_Max_Fields>;
+  min?: Maybe<Musics_Min_Fields>;
+  stddev?: Maybe<Musics_Stddev_Fields>;
+  stddev_pop?: Maybe<Musics_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Musics_Stddev_Samp_Fields>;
+  sum?: Maybe<Musics_Sum_Fields>;
+  var_pop?: Maybe<Musics_Var_Pop_Fields>;
+  var_samp?: Maybe<Musics_Var_Samp_Fields>;
+  variance?: Maybe<Musics_Variance_Fields>;
 };
 
-/** aggregate fields of "music" */
-export type Music_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Music_Select_Column>>;
+/** aggregate fields of "musics" */
+export type Musics_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Musics_Select_Column>>;
   distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** aggregate avg on columns */
-export type Music_Avg_Fields = {
-  __typename?: "music_avg_fields";
+export type Musics_Avg_Fields = {
+  __typename?: "musics_avg_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
-/** Boolean expression to filter rows from the table "music". All fields are combined with a logical 'AND'. */
-export type Music_Bool_Exp = {
-  _and?: InputMaybe<Array<Music_Bool_Exp>>;
-  _not?: InputMaybe<Music_Bool_Exp>;
-  _or?: InputMaybe<Array<Music_Bool_Exp>>;
+/** Boolean expression to filter rows from the table "musics". All fields are combined with a logical 'AND'. */
+export type Musics_Bool_Exp = {
+  _and?: InputMaybe<Array<Musics_Bool_Exp>>;
+  _not?: InputMaybe<Musics_Bool_Exp>;
+  _or?: InputMaybe<Array<Musics_Bool_Exp>>;
   bpm?: InputMaybe<String_Comparison_Exp>;
   difficulty?: InputMaybe<String_Comparison_Exp>;
   genre?: InputMaybe<String_Comparison_Exp>;
   level?: InputMaybe<Int_Comparison_Exp>;
   notes?: InputMaybe<Int_Comparison_Exp>;
   title?: InputMaybe<String_Comparison_Exp>;
+  version?: InputMaybe<Float8_Comparison_Exp>;
 };
 
-/** unique or primary key constraints on table "music" */
-export enum Music_Constraint {
+/** unique or primary key constraints on table "musics" */
+export enum Musics_Constraint {
   /** unique or primary key constraint on columns "difficulty", "title" */
-  MusicPkey = "music_pkey",
+  MusicsPkey = "musics_pkey",
 }
 
-/** input type for incrementing numeric columns in table "music" */
-export type Music_Inc_Input = {
+/** input type for incrementing numeric columns in table "musics" */
+export type Musics_Inc_Input = {
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
+  version?: InputMaybe<Scalars["float8"]>;
 };
 
-/** input type for inserting data into table "music" */
-export type Music_Insert_Input = {
+/** input type for inserting data into table "musics" */
+export type Musics_Insert_Input = {
   bpm?: InputMaybe<Scalars["String"]>;
   difficulty?: InputMaybe<Scalars["String"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   title?: InputMaybe<Scalars["String"]>;
+  version?: InputMaybe<Scalars["float8"]>;
 };
 
 /** aggregate max on columns */
-export type Music_Max_Fields = {
-  __typename?: "music_max_fields";
+export type Musics_Max_Fields = {
+  __typename?: "musics_max_fields";
   bpm?: Maybe<Scalars["String"]>;
   difficulty?: Maybe<Scalars["String"]>;
   genre?: Maybe<Scalars["String"]>;
   level?: Maybe<Scalars["Int"]>;
   notes?: Maybe<Scalars["Int"]>;
   title?: Maybe<Scalars["String"]>;
+  version?: Maybe<Scalars["float8"]>;
 };
 
 /** aggregate min on columns */
-export type Music_Min_Fields = {
-  __typename?: "music_min_fields";
+export type Musics_Min_Fields = {
+  __typename?: "musics_min_fields";
   bpm?: Maybe<Scalars["String"]>;
   difficulty?: Maybe<Scalars["String"]>;
   genre?: Maybe<Scalars["String"]>;
   level?: Maybe<Scalars["Int"]>;
   notes?: Maybe<Scalars["Int"]>;
   title?: Maybe<Scalars["String"]>;
+  version?: Maybe<Scalars["float8"]>;
 };
 
-/** response of any mutation on the table "music" */
-export type Music_Mutation_Response = {
-  __typename?: "music_mutation_response";
+/** response of any mutation on the table "musics" */
+export type Musics_Mutation_Response = {
+  __typename?: "musics_mutation_response";
   /** number of rows affected by the mutation */
   affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
-  returning: Array<Music>;
+  returning: Array<Musics>;
 };
 
-/** on_conflict condition type for table "music" */
-export type Music_On_Conflict = {
-  constraint: Music_Constraint;
-  update_columns?: Array<Music_Update_Column>;
-  where?: InputMaybe<Music_Bool_Exp>;
+/** on_conflict condition type for table "musics" */
+export type Musics_On_Conflict = {
+  constraint: Musics_Constraint;
+  update_columns?: Array<Musics_Update_Column>;
+  where?: InputMaybe<Musics_Bool_Exp>;
 };
 
-/** Ordering options when selecting data from "music". */
-export type Music_Order_By = {
+/** Ordering options when selecting data from "musics". */
+export type Musics_Order_By = {
   bpm?: InputMaybe<Order_By>;
   difficulty?: InputMaybe<Order_By>;
   genre?: InputMaybe<Order_By>;
   level?: InputMaybe<Order_By>;
   notes?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
+  version?: InputMaybe<Order_By>;
 };
 
-/** primary key columns input for table: music */
-export type Music_Pk_Columns_Input = {
+/** primary key columns input for table: musics */
+export type Musics_Pk_Columns_Input = {
   difficulty: Scalars["String"];
   title: Scalars["String"];
 };
 
-/** select columns of table "music" */
-export enum Music_Select_Column {
+/** select columns of table "musics" */
+export enum Musics_Select_Column {
   /** column name */
   Bpm = "bpm",
   /** column name */
@@ -224,66 +246,74 @@ export enum Music_Select_Column {
   Notes = "notes",
   /** column name */
   Title = "title",
+  /** column name */
+  Version = "version",
 }
 
-/** input type for updating data in table "music" */
-export type Music_Set_Input = {
+/** input type for updating data in table "musics" */
+export type Musics_Set_Input = {
   bpm?: InputMaybe<Scalars["String"]>;
   difficulty?: InputMaybe<Scalars["String"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   title?: InputMaybe<Scalars["String"]>;
+  version?: InputMaybe<Scalars["float8"]>;
 };
 
 /** aggregate stddev on columns */
-export type Music_Stddev_Fields = {
-  __typename?: "music_stddev_fields";
+export type Musics_Stddev_Fields = {
+  __typename?: "musics_stddev_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
 /** aggregate stddev_pop on columns */
-export type Music_Stddev_Pop_Fields = {
-  __typename?: "music_stddev_pop_fields";
+export type Musics_Stddev_Pop_Fields = {
+  __typename?: "musics_stddev_pop_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
 /** aggregate stddev_samp on columns */
-export type Music_Stddev_Samp_Fields = {
-  __typename?: "music_stddev_samp_fields";
+export type Musics_Stddev_Samp_Fields = {
+  __typename?: "musics_stddev_samp_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
-/** Streaming cursor of the table "music" */
-export type Music_Stream_Cursor_Input = {
+/** Streaming cursor of the table "musics" */
+export type Musics_Stream_Cursor_Input = {
   /** Stream column input with initial value */
-  initial_value: Music_Stream_Cursor_Value_Input;
+  initial_value: Musics_Stream_Cursor_Value_Input;
   /** cursor ordering */
   ordering?: InputMaybe<Cursor_Ordering>;
 };
 
 /** Initial value of the column from where the streaming should start */
-export type Music_Stream_Cursor_Value_Input = {
+export type Musics_Stream_Cursor_Value_Input = {
   bpm?: InputMaybe<Scalars["String"]>;
   difficulty?: InputMaybe<Scalars["String"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   title?: InputMaybe<Scalars["String"]>;
+  version?: InputMaybe<Scalars["float8"]>;
 };
 
 /** aggregate sum on columns */
-export type Music_Sum_Fields = {
-  __typename?: "music_sum_fields";
+export type Musics_Sum_Fields = {
+  __typename?: "musics_sum_fields";
   level?: Maybe<Scalars["Int"]>;
   notes?: Maybe<Scalars["Int"]>;
+  version?: Maybe<Scalars["float8"]>;
 };
 
-/** update columns of table "music" */
-export enum Music_Update_Column {
+/** update columns of table "musics" */
+export enum Musics_Update_Column {
   /** column name */
   Bpm = "bpm",
   /** column name */
@@ -296,97 +326,102 @@ export enum Music_Update_Column {
   Notes = "notes",
   /** column name */
   Title = "title",
+  /** column name */
+  Version = "version",
 }
 
-export type Music_Updates = {
+export type Musics_Updates = {
   /** increments the numeric columns with given value of the filtered values */
-  _inc?: InputMaybe<Music_Inc_Input>;
+  _inc?: InputMaybe<Musics_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
-  _set?: InputMaybe<Music_Set_Input>;
+  _set?: InputMaybe<Musics_Set_Input>;
   /** filter the rows which have to be updated */
-  where: Music_Bool_Exp;
+  where: Musics_Bool_Exp;
 };
 
 /** aggregate var_pop on columns */
-export type Music_Var_Pop_Fields = {
-  __typename?: "music_var_pop_fields";
+export type Musics_Var_Pop_Fields = {
+  __typename?: "musics_var_pop_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
 /** aggregate var_samp on columns */
-export type Music_Var_Samp_Fields = {
-  __typename?: "music_var_samp_fields";
+export type Musics_Var_Samp_Fields = {
+  __typename?: "musics_var_samp_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
 /** aggregate variance on columns */
-export type Music_Variance_Fields = {
-  __typename?: "music_variance_fields";
+export type Musics_Variance_Fields = {
+  __typename?: "musics_variance_fields";
   level?: Maybe<Scalars["Float"]>;
   notes?: Maybe<Scalars["Float"]>;
+  version?: Maybe<Scalars["Float"]>;
 };
 
 /** mutation root */
 export type Mutation_Root = {
   __typename?: "mutation_root";
-  /** delete data from the table: "music" */
-  delete_music?: Maybe<Music_Mutation_Response>;
-  /** delete single row from the table: "music" */
-  delete_music_by_pk?: Maybe<Music>;
-  /** insert data into the table: "music" */
-  insert_music?: Maybe<Music_Mutation_Response>;
-  /** insert a single row into the table: "music" */
-  insert_music_one?: Maybe<Music>;
-  /** update data of the table: "music" */
-  update_music?: Maybe<Music_Mutation_Response>;
-  /** update single row of the table: "music" */
-  update_music_by_pk?: Maybe<Music>;
-  /** update multiples rows of table: "music" */
-  update_music_many?: Maybe<Array<Maybe<Music_Mutation_Response>>>;
+  /** delete data from the table: "musics" */
+  delete_musics?: Maybe<Musics_Mutation_Response>;
+  /** delete single row from the table: "musics" */
+  delete_musics_by_pk?: Maybe<Musics>;
+  /** insert data into the table: "musics" */
+  insert_musics?: Maybe<Musics_Mutation_Response>;
+  /** insert a single row into the table: "musics" */
+  insert_musics_one?: Maybe<Musics>;
+  /** update data of the table: "musics" */
+  update_musics?: Maybe<Musics_Mutation_Response>;
+  /** update single row of the table: "musics" */
+  update_musics_by_pk?: Maybe<Musics>;
+  /** update multiples rows of table: "musics" */
+  update_musics_many?: Maybe<Array<Maybe<Musics_Mutation_Response>>>;
 };
 
 /** mutation root */
-export type Mutation_RootDelete_MusicArgs = {
-  where: Music_Bool_Exp;
+export type Mutation_RootDelete_MusicsArgs = {
+  where: Musics_Bool_Exp;
 };
 
 /** mutation root */
-export type Mutation_RootDelete_Music_By_PkArgs = {
+export type Mutation_RootDelete_Musics_By_PkArgs = {
   difficulty: Scalars["String"];
   title: Scalars["String"];
 };
 
 /** mutation root */
-export type Mutation_RootInsert_MusicArgs = {
-  objects: Array<Music_Insert_Input>;
-  on_conflict?: InputMaybe<Music_On_Conflict>;
+export type Mutation_RootInsert_MusicsArgs = {
+  objects: Array<Musics_Insert_Input>;
+  on_conflict?: InputMaybe<Musics_On_Conflict>;
 };
 
 /** mutation root */
-export type Mutation_RootInsert_Music_OneArgs = {
-  object: Music_Insert_Input;
-  on_conflict?: InputMaybe<Music_On_Conflict>;
+export type Mutation_RootInsert_Musics_OneArgs = {
+  object: Musics_Insert_Input;
+  on_conflict?: InputMaybe<Musics_On_Conflict>;
 };
 
 /** mutation root */
-export type Mutation_RootUpdate_MusicArgs = {
-  _inc?: InputMaybe<Music_Inc_Input>;
-  _set?: InputMaybe<Music_Set_Input>;
-  where: Music_Bool_Exp;
+export type Mutation_RootUpdate_MusicsArgs = {
+  _inc?: InputMaybe<Musics_Inc_Input>;
+  _set?: InputMaybe<Musics_Set_Input>;
+  where: Musics_Bool_Exp;
 };
 
 /** mutation root */
-export type Mutation_RootUpdate_Music_By_PkArgs = {
-  _inc?: InputMaybe<Music_Inc_Input>;
-  _set?: InputMaybe<Music_Set_Input>;
-  pk_columns: Music_Pk_Columns_Input;
+export type Mutation_RootUpdate_Musics_By_PkArgs = {
+  _inc?: InputMaybe<Musics_Inc_Input>;
+  _set?: InputMaybe<Musics_Set_Input>;
+  pk_columns: Musics_Pk_Columns_Input;
 };
 
 /** mutation root */
-export type Mutation_RootUpdate_Music_ManyArgs = {
-  updates: Array<Music_Updates>;
+export type Mutation_RootUpdate_Musics_ManyArgs = {
+  updates: Array<Musics_Updates>;
 };
 
 /** column ordering options */
@@ -407,80 +442,80 @@ export enum Order_By {
 
 export type Query_Root = {
   __typename?: "query_root";
-  /** fetch data from the table: "music" */
-  music: Array<Music>;
-  /** fetch aggregated fields from the table: "music" */
-  music_aggregate: Music_Aggregate;
-  /** fetch data from the table: "music" using primary key columns */
-  music_by_pk?: Maybe<Music>;
+  /** fetch data from the table: "musics" */
+  musics: Array<Musics>;
+  /** fetch aggregated fields from the table: "musics" */
+  musics_aggregate: Musics_Aggregate;
+  /** fetch data from the table: "musics" using primary key columns */
+  musics_by_pk?: Maybe<Musics>;
 };
 
-export type Query_RootMusicArgs = {
-  distinct_on?: InputMaybe<Array<Music_Select_Column>>;
+export type Query_RootMusicsArgs = {
+  distinct_on?: InputMaybe<Array<Musics_Select_Column>>;
   limit?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
-  order_by?: InputMaybe<Array<Music_Order_By>>;
-  where?: InputMaybe<Music_Bool_Exp>;
+  order_by?: InputMaybe<Array<Musics_Order_By>>;
+  where?: InputMaybe<Musics_Bool_Exp>;
 };
 
-export type Query_RootMusic_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Music_Select_Column>>;
+export type Query_RootMusics_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Musics_Select_Column>>;
   limit?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
-  order_by?: InputMaybe<Array<Music_Order_By>>;
-  where?: InputMaybe<Music_Bool_Exp>;
+  order_by?: InputMaybe<Array<Musics_Order_By>>;
+  where?: InputMaybe<Musics_Bool_Exp>;
 };
 
-export type Query_RootMusic_By_PkArgs = {
+export type Query_RootMusics_By_PkArgs = {
   difficulty: Scalars["String"];
   title: Scalars["String"];
 };
 
 export type Subscription_Root = {
   __typename?: "subscription_root";
-  /** fetch data from the table: "music" */
-  music: Array<Music>;
-  /** fetch aggregated fields from the table: "music" */
-  music_aggregate: Music_Aggregate;
-  /** fetch data from the table: "music" using primary key columns */
-  music_by_pk?: Maybe<Music>;
-  /** fetch data from the table in a streaming manner: "music" */
-  music_stream: Array<Music>;
+  /** fetch data from the table: "musics" */
+  musics: Array<Musics>;
+  /** fetch aggregated fields from the table: "musics" */
+  musics_aggregate: Musics_Aggregate;
+  /** fetch data from the table: "musics" using primary key columns */
+  musics_by_pk?: Maybe<Musics>;
+  /** fetch data from the table in a streaming manner: "musics" */
+  musics_stream: Array<Musics>;
 };
 
-export type Subscription_RootMusicArgs = {
-  distinct_on?: InputMaybe<Array<Music_Select_Column>>;
+export type Subscription_RootMusicsArgs = {
+  distinct_on?: InputMaybe<Array<Musics_Select_Column>>;
   limit?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
-  order_by?: InputMaybe<Array<Music_Order_By>>;
-  where?: InputMaybe<Music_Bool_Exp>;
+  order_by?: InputMaybe<Array<Musics_Order_By>>;
+  where?: InputMaybe<Musics_Bool_Exp>;
 };
 
-export type Subscription_RootMusic_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Music_Select_Column>>;
+export type Subscription_RootMusics_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Musics_Select_Column>>;
   limit?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
-  order_by?: InputMaybe<Array<Music_Order_By>>;
-  where?: InputMaybe<Music_Bool_Exp>;
+  order_by?: InputMaybe<Array<Musics_Order_By>>;
+  where?: InputMaybe<Musics_Bool_Exp>;
 };
 
-export type Subscription_RootMusic_By_PkArgs = {
+export type Subscription_RootMusics_By_PkArgs = {
   difficulty: Scalars["String"];
   title: Scalars["String"];
 };
 
-export type Subscription_RootMusic_StreamArgs = {
+export type Subscription_RootMusics_StreamArgs = {
   batch_size: Scalars["Int"];
-  cursor: Array<InputMaybe<Music_Stream_Cursor_Input>>;
-  where?: InputMaybe<Music_Bool_Exp>;
+  cursor: Array<InputMaybe<Musics_Stream_Cursor_Input>>;
+  where?: InputMaybe<Musics_Bool_Exp>;
 };
 
 export type ChordQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ChordQuery = {
   __typename?: "query_root";
-  music: Array<{
-    __typename?: "music";
+  musics: Array<{
+    __typename?: "musics";
     genre: string;
     bpm: string;
     difficulty: string;
@@ -494,8 +529,8 @@ export type NotesQueryVariables = Exact<{ [key: string]: never }>;
 
 export type NotesQuery = {
   __typename?: "query_root";
-  music: Array<{
-    __typename?: "music";
+  musics: Array<{
+    __typename?: "musics";
     genre: string;
     bpm: string;
     difficulty: string;
@@ -517,7 +552,7 @@ export const ChordDocument = {
         selections: [
           {
             kind: "Field",
-            name: { kind: "Name", value: "music" },
+            name: { kind: "Name", value: "musics" },
             arguments: [
               {
                 kind: "Argument",
@@ -576,7 +611,7 @@ export const NotesDocument = {
         selections: [
           {
             kind: "Field",
-            name: { kind: "Name", value: "music" },
+            name: { kind: "Name", value: "musics" },
             arguments: [
               {
                 kind: "Argument",

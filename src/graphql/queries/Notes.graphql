@@ -1,5 +1,5 @@
 query Notes {
-  music(where: { genre: { _eq: "NOTES" } }) {
+  musics(where: { genre: { _eq: "NOTES" } }) {
     genre
     bpm
     difficulty

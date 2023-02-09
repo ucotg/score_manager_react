@@ -13,8 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "query Chord {\n  music(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}": types.ChordDocument,
-    "query Notes {\n  music(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}": types.NotesDocument,
+    "query Chord {\n  musics(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}": types.ChordDocument,
+    "query Notes {\n  musics(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}": types.NotesDocument,
 };
 
 /**
@@ -34,11 +34,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query Chord {\n  music(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"): (typeof documents)["query Chord {\n  music(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"];
+export function graphql(source: "query Chord {\n  musics(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"): (typeof documents)["query Chord {\n  musics(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query Notes {\n  music(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"): (typeof documents)["query Notes {\n  music(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"];
+export function graphql(source: "query Notes {\n  musics(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"): (typeof documents)["query Notes {\n  musics(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
