@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "../App.css";
 import { TextField } from "@mui/material";
 
-const CsvImport: React.FC = () => {
+const CsvImport = () => {
   return (
     <>
       <div className="CsvImport">あいうえお</div>
