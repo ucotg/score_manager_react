@@ -12,3 +12,10 @@ export type SongData = {
   updatedAt: string;
   version: string;
 };
+
+export type importedCSVData = {
+  title: string;
+  anotherScore: number;
+  leggendariaScore: number;
+  lastPlayed: string;
+}[];
