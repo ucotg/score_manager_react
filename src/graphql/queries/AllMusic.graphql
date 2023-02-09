@@ -1,8 +1,8 @@
-query Notes {
-  musics(where: { genre: { _eq: "NOTES" } }) {
-    genre
+query AllMusic {
+  musics {
     bpm
     difficulty
+    genre
     level
     notes
     title

@@ -6,5 +6,6 @@ query Chord {
     level
     notes
     title
+    version
   }
 }

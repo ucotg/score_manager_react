@@ -2,15 +2,9 @@
 import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -510,6 +504,22 @@ export type Subscription_RootMusics_StreamArgs = {
   where?: InputMaybe<Musics_Bool_Exp>;
 };
 
+export type AllMusicQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllMusicQuery = {
+  __typename?: "query_root";
+  musics: Array<{
+    __typename?: "musics";
+    bpm: string;
+    difficulty: string;
+    genre: string;
+    level: number;
+    notes: number;
+    title: string;
+    version: any;
+  }>;
+};
+
 export type ChordQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ChordQuery = {
@@ -522,6 +532,7 @@ export type ChordQuery = {
     level: number;
     notes: number;
     title: string;
+    version: any;
   }>;
 };
 
@@ -537,9 +548,41 @@ export type NotesQuery = {
     level: number;
     notes: number;
     title: string;
+    version: any;
   }>;
 };
 
+export const AllMusicDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "AllMusic" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "musics" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "bpm" } },
+                { kind: "Field", name: { kind: "Name", value: "difficulty" } },
+                { kind: "Field", name: { kind: "Name", value: "genre" } },
+                { kind: "Field", name: { kind: "Name", value: "level" } },
+                { kind: "Field", name: { kind: "Name", value: "notes" } },
+                { kind: "Field", name: { kind: "Name", value: "title" } },
+                { kind: "Field", name: { kind: "Name", value: "version" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AllMusicQuery, AllMusicQueryVariables>;
 export const ChordDocument = {
   kind: "Document",
   definitions: [
@@ -569,11 +612,7 @@ export const ChordDocument = {
                           {
                             kind: "ObjectField",
                             name: { kind: "Name", value: "_eq" },
-                            value: {
-                              kind: "StringValue",
-                              value: "CHORD",
-                              block: false,
-                            },
+                            value: { kind: "StringValue", value: "CHORD", block: false },
                           },
                         ],
                       },
@@ -591,6 +630,7 @@ export const ChordDocument = {
                 { kind: "Field", name: { kind: "Name", value: "level" } },
                 { kind: "Field", name: { kind: "Name", value: "notes" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
+                { kind: "Field", name: { kind: "Name", value: "version" } },
               ],
             },
           },
@@ -628,11 +668,7 @@ export const NotesDocument = {
                           {
                             kind: "ObjectField",
                             name: { kind: "Name", value: "_eq" },
-                            value: {
-                              kind: "StringValue",
-                              value: "NOTES",
-                              block: false,
-                            },
+                            value: { kind: "StringValue", value: "NOTES", block: false },
                           },
                         ],
                       },
@@ -650,6 +686,7 @@ export const NotesDocument = {
                 { kind: "Field", name: { kind: "Name", value: "level" } },
                 { kind: "Field", name: { kind: "Name", value: "notes" } },
                 { kind: "Field", name: { kind: "Name", value: "title" } },
+                { kind: "Field", name: { kind: "Name", value: "version" } },
               ],
             },
           },
