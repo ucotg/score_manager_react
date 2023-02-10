@@ -6,13 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://scoremanager.hasura.app/v1/graphql",
+  uri: "http://localhost:8080/v1/graphql",
   cache: new InMemoryCache(),
 });
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
