@@ -6,7 +6,7 @@ import { NotesDocument } from "../graphql/generated/graphql";
 
 import { CsvImportField } from "../components/CsvImportField";
 
-const CsvImport = () => {
+const CsvImport: React.FC = () => {
   return (
     <>
       <h1>スコアデータCSVインポート</h1>
