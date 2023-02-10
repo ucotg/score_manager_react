@@ -52,7 +52,7 @@ const Register: React.FC = () => {
       <div>
         <Link to={`/`}>ホームに戻る</Link>
       </div>
-      <MaterialReactTable columns={columns} data={songs} />
+      <MaterialReactTable columns={columns} data={songs} muiTablePaperProps={{ sx: { mx: 2, boxShadow: "none" } }} />
     </>
   );
 };
