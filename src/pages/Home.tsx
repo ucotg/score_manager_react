@@ -5,7 +5,7 @@ const Home: React.FC = () => {
     <>
       <h1>beatmaniaIIDX BPL課題曲スコア・オプションマネージャー</h1>
       <div>
-        新規登録は<Link to={`/register/`}>こちら</Link> <br />
+        楽曲一覧は<Link to={`/musicData/`}>こちら</Link> <br />
         CSVインポートは<Link to={`/csvImport/`}>こちら</Link>
       </div>
     </>

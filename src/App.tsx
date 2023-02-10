@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Register from "./pages/Register";
+import MusicData from "./pages/MusicData";
 import Login from "./pages/Login";
 import CsvImport from "./pages/CsvImport";
 
@@ -11,9 +11,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path={`/`} element={<Home />} />
-        <Route path={`/register/`} element={<Register />} />
+        <Route path={`/musicData/`} element={<MusicData />} />
         <Route path={`/login/`} element={<Login />} />
-        <Route path={`/CsvImport/`} element={<CsvImport />} />
+        <Route path={`/csvImport/`} element={<CsvImport />} />
       </Routes>
     </BrowserRouter>
   );
