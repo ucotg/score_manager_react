@@ -7,5 +7,6 @@ query AllMusic {
     notes
     title
     version
+    exscore
   }
 }

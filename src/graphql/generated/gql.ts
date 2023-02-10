@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "query AllMusic {\n  musics {\n    bpm\n    difficulty\n    genre\n    level\n    notes\n    title\n    version\n  }\n}": types.AllMusicDocument,
+    "query AllMusic {\n  musics {\n    bpm\n    difficulty\n    genre\n    level\n    notes\n    title\n    version\n    exscore\n  }\n}": types.AllMusicDocument,
     "query Chord {\n  musics(where: {genre: {_eq: \"CHORD\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n    version\n  }\n}": types.ChordDocument,
     "query Notes {\n  musics(where: {genre: {_eq: \"NOTES\"}}) {\n    genre\n    bpm\n    difficulty\n    level\n    notes\n    title\n    version\n  }\n}": types.NotesDocument,
     "mutation UpdateAnotherScore($title: String!, $exscore: Int!) {\n  update_musics_by_pk(\n    pk_columns: {title: $title, difficulty: \"ANOTHER\"}\n    _set: {exscore: $exscore}\n  ) {\n    exscore\n  }\n}": types.UpdateAnotherScoreDocument,
@@ -37,7 +37,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query AllMusic {\n  musics {\n    bpm\n    difficulty\n    genre\n    level\n    notes\n    title\n    version\n  }\n}"): (typeof documents)["query AllMusic {\n  musics {\n    bpm\n    difficulty\n    genre\n    level\n    notes\n    title\n    version\n  }\n}"];
+export function graphql(source: "query AllMusic {\n  musics {\n    bpm\n    difficulty\n    genre\n    level\n    notes\n    title\n    version\n    exscore\n  }\n}"): (typeof documents)["query AllMusic {\n  musics {\n    bpm\n    difficulty\n    genre\n    level\n    notes\n    title\n    version\n    exscore\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
