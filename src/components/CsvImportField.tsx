@@ -2,12 +2,27 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { Box, Typography, TextField, Button } from "@mui/material";
 
-import { SongData } from "../types/data";
-import { AllMusicDocument } from "../graphql/generated/graphql";
+import { UpdateAnotherScoreDocument, UpdateLeggendariaScoreDocument } from "../graphql/generated/graphql";
 import { execute } from "../functions/execute";
 
-export const CsvImportField: React.FC = (props) => {
+export const CsvImportField: React.FC = () => {
   const [raw, setRaw] = useState<string>("");
+  const [updateAnotherScore] = useMutation(UpdateAnotherScoreDocument);
+  const [updateLeggendariaScore] = useMutation(UpdateLeggendariaScoreDocument);
+
+  const onSubmit = async (title: string, anotherScore: number, leggendariaScore: number) => {
+    try {
+      await updateAnotherScore({
+        variables: { title, exscore: anotherScore },
+      });
+      await updateLeggendariaScore({
+        variables: { title, exscore: leggendariaScore },
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+
   return (
     <>
       <TextField
@@ -19,9 +34,9 @@ export const CsvImportField: React.FC = (props) => {
         margin="dense"
         variant="outlined"
         multiline
-        maxRows="4"
+        maxRows="8"
       />
-      <Button type="button" variant="outlined" size="large" onClick={() => execute(raw)}>
+      <Button type="button" variant="outlined" size="large" onClick={() => execute(raw, onSubmit)}>
         インポート
       </Button>
     </>
