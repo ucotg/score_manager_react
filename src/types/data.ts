@@ -10,6 +10,8 @@ export type SongData = {
   storedAt?: string;
   updatedAt?: string;
   version: string;
+  scoreRate: string;
+  djRank: string;
 };
 
 export type importedCSVData = {
