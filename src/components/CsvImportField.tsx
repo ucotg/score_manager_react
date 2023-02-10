@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { Box, Typography, TextField, Button } from "@mui/material";
 
-import { UpdateAnotherScoreDocument, UpdateLeggendariaScoreDocument } from "../graphql/generated/graphql";
+import {
+  AllMusicDocument,
+  UpdateAnotherScoreDocument,
+  UpdateLeggendariaScoreDocument,
+} from "../graphql/generated/graphql";
 import { execute } from "../functions/execute";
 
 export const CsvImportField: React.FC = () => {
   const [raw, setRaw] = useState<string>("");
   const [updateAnotherScore] = useMutation(UpdateAnotherScoreDocument);
-  const [updateLeggendariaScore] = useMutation(UpdateLeggendariaScoreDocument);
+  const { refetch } = useQuery(AllMusicDocument);
+  const [updateLeggendariaScore] = useMutation(UpdateLeggendariaScoreDocument, {
+    onCompleted() {
+      refetch();
+    },
+  });
 
   const onSubmit = async (title: string, anotherScore: number, leggendariaScore: number) => {
     try {
