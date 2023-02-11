@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { AllMusicDocument } from "../graphql/generated/graphql";
 import MaterialReactTable, { MRT_ColumnDef } from "material-react-table";
+import { TextField, MenuItem } from "@mui/material";
 import { SongData } from "../types/data";
 import { convertVersionNumToStr } from "../functions/convertVersionNumToStr";
 import { djRank } from "../functions/djRank";
@@ -32,15 +33,62 @@ const Register: React.FC = () => {
     : [];
 
   const columns: MRT_ColumnDef<SongData>[] = [
-    { header: "Lv", accessorKey: "level" },
+    {
+      header: "Lv",
+      accessorKey: "level",
+      size: 20,
+      enableSorting: false,
+      Filter: ({ header }) => (
+        <TextField
+          onChange={(e) => header.column.setFilterValue(e.target.value || undefined)}
+          select
+          value={header.column.getFilterValue() ?? ""}
+          margin="none"
+          placeholder="Filter"
+          variant="standard"
+          fullWidth
+        >
+          {/*@ts-ignore*/}
+          <MenuItem value={null}>All</MenuItem>
+          <MenuItem value="8">☆8</MenuItem>
+          <MenuItem value="9">☆9</MenuItem>
+          <MenuItem value="10">☆10</MenuItem>
+          <MenuItem value="11">☆11</MenuItem>
+          <MenuItem value="12">☆12</MenuItem>
+        </TextField>
+      ),
+      filterFn: (row, _columnIds, filterValue) => row.getValue<number>("level").toString() === filterValue,
+    },
     { header: "タイトル", accessorKey: "title" },
-    { header: "難易度", accessorKey: "difficulty" },
-    { header: "BPM", accessorKey: "bpm" },
-    { header: "ノーツ数", accessorKey: "notes" },
-    { header: "EX SCORE", accessorKey: "exscore" },
-    { header: "DJ RANK", accessorKey: "djRank" },
-    { header: "SCORE RATE", accessorKey: "scoreRate" },
-    { header: "バージョン", accessorKey: "version" },
+    {
+      header: "難易度",
+      accessorKey: "difficulty",
+      size: 70,
+      enableSorting: false,
+      Filter: ({ header }) => (
+        <TextField
+          onChange={(e) => header.column.setFilterValue(e.target.value || undefined)}
+          select
+          value={header.column.getFilterValue() ?? ""}
+          margin="none"
+          placeholder="Filter"
+          variant="standard"
+          fullWidth
+        >
+          {/*@ts-ignore*/}
+          <MenuItem value={null}>All</MenuItem>
+          <MenuItem value="ANOTHER">ANOTHER</MenuItem>
+          <MenuItem value="LEGGENDARIA">LEGGENDARIA</MenuItem>
+        </TextField>
+      ),
+      filterFn: (row, _columnIds, filterValue) => row.getValue<string>("difficulty") === filterValue,
+    },
+    { header: "BPM", accessorKey: "bpm", size: 50 },
+    { header: "ノーツ数", accessorKey: "notes", size: 50 },
+    { header: "EX SCORE", accessorKey: "exscore", size: 50 },
+    { header: "DJ RANK", accessorKey: "djRank", size: 50 },
+    { header: "SCORE RATE", accessorKey: "scoreRate", size: 50 },
+    { header: "バージョン", accessorKey: "version", size: 50 },
   ];
 
   return (
