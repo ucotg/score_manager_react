@@ -1,0 +1,11 @@
+query AllLeggendariaMusics {
+  musics(where: { difficulty: { _eq: "LEGGENDARIA" } }) {
+    bpm
+    difficulty
+    level
+    genre
+    notes
+    title
+    version
+  }
+}

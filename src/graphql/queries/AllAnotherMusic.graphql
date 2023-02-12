@@ -1,0 +1,11 @@
+query AllAnotherMusics {
+  musics(where: { difficulty: { _eq: "ANOTHER" } }) {
+    bpm
+    difficulty
+    level
+    genre
+    notes
+    title
+    version
+  }
+}

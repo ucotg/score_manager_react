@@ -90,7 +90,6 @@ export type Musics = {
   exscore?: Maybe<Scalars["Int"]>;
   genre: Scalars["String"];
   level: Scalars["Int"];
-  newrecorded_at?: Maybe<Scalars["String"]>;
   notes: Scalars["Int"];
   title: Scalars["String"];
   version: Scalars["float8"];
@@ -144,7 +143,6 @@ export type Musics_Bool_Exp = {
   exscore?: InputMaybe<Int_Comparison_Exp>;
   genre?: InputMaybe<String_Comparison_Exp>;
   level?: InputMaybe<Int_Comparison_Exp>;
-  newrecorded_at?: InputMaybe<String_Comparison_Exp>;
   notes?: InputMaybe<Int_Comparison_Exp>;
   title?: InputMaybe<String_Comparison_Exp>;
   version?: InputMaybe<Float8_Comparison_Exp>;
@@ -171,7 +169,6 @@ export type Musics_Insert_Input = {
   exscore?: InputMaybe<Scalars["Int"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
-  newrecorded_at?: InputMaybe<Scalars["String"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   title?: InputMaybe<Scalars["String"]>;
   version?: InputMaybe<Scalars["float8"]>;
@@ -185,7 +182,6 @@ export type Musics_Max_Fields = {
   exscore?: Maybe<Scalars["Int"]>;
   genre?: Maybe<Scalars["String"]>;
   level?: Maybe<Scalars["Int"]>;
-  newrecorded_at?: Maybe<Scalars["String"]>;
   notes?: Maybe<Scalars["Int"]>;
   title?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["float8"]>;
@@ -199,7 +195,6 @@ export type Musics_Min_Fields = {
   exscore?: Maybe<Scalars["Int"]>;
   genre?: Maybe<Scalars["String"]>;
   level?: Maybe<Scalars["Int"]>;
-  newrecorded_at?: Maybe<Scalars["String"]>;
   notes?: Maybe<Scalars["Int"]>;
   title?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["float8"]>;
@@ -228,7 +223,6 @@ export type Musics_Order_By = {
   exscore?: InputMaybe<Order_By>;
   genre?: InputMaybe<Order_By>;
   level?: InputMaybe<Order_By>;
-  newrecorded_at?: InputMaybe<Order_By>;
   notes?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
   version?: InputMaybe<Order_By>;
@@ -253,8 +247,6 @@ export enum Musics_Select_Column {
   /** column name */
   Level = "level",
   /** column name */
-  NewrecordedAt = "newrecorded_at",
-  /** column name */
   Notes = "notes",
   /** column name */
   Title = "title",
@@ -269,7 +261,6 @@ export type Musics_Set_Input = {
   exscore?: InputMaybe<Scalars["Int"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
-  newrecorded_at?: InputMaybe<Scalars["String"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   title?: InputMaybe<Scalars["String"]>;
   version?: InputMaybe<Scalars["float8"]>;
@@ -317,7 +308,6 @@ export type Musics_Stream_Cursor_Value_Input = {
   exscore?: InputMaybe<Scalars["Int"]>;
   genre?: InputMaybe<Scalars["String"]>;
   level?: InputMaybe<Scalars["Int"]>;
-  newrecorded_at?: InputMaybe<Scalars["String"]>;
   notes?: InputMaybe<Scalars["Int"]>;
   title?: InputMaybe<Scalars["String"]>;
   version?: InputMaybe<Scalars["float8"]>;
@@ -344,8 +334,6 @@ export enum Musics_Update_Column {
   Genre = "genre",
   /** column name */
   Level = "level",
-  /** column name */
-  NewrecordedAt = "newrecorded_at",
   /** column name */
   Notes = "notes",
   /** column name */
@@ -537,6 +525,38 @@ export type Subscription_RootMusics_StreamArgs = {
   where?: InputMaybe<Musics_Bool_Exp>;
 };
 
+export type AllAnotherMusicsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllAnotherMusicsQuery = {
+  __typename?: "query_root";
+  musics: Array<{
+    __typename?: "musics";
+    bpm: string;
+    difficulty: string;
+    level: number;
+    genre: string;
+    notes: number;
+    title: string;
+    version: any;
+  }>;
+};
+
+export type AllLeggendariaMusicsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllLeggendariaMusicsQuery = {
+  __typename?: "query_root";
+  musics: Array<{
+    __typename?: "musics";
+    bpm: string;
+    difficulty: string;
+    level: number;
+    genre: string;
+    notes: number;
+    title: string;
+    version: any;
+  }>;
+};
+
 export type AllMusicQueryVariables = Exact<{ [key: string]: never }>;
 
 export type AllMusicQuery = {
@@ -606,6 +626,118 @@ export type UpdateLeggendariaScoreMutation = {
   update_musics_by_pk?: { __typename?: "musics"; exscore?: number | null } | null;
 };
 
+export const AllAnotherMusicsDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "AllAnotherMusics" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "musics" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "where" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "difficulty" },
+                      value: {
+                        kind: "ObjectValue",
+                        fields: [
+                          {
+                            kind: "ObjectField",
+                            name: { kind: "Name", value: "_eq" },
+                            value: { kind: "StringValue", value: "ANOTHER", block: false },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "bpm" } },
+                { kind: "Field", name: { kind: "Name", value: "difficulty" } },
+                { kind: "Field", name: { kind: "Name", value: "level" } },
+                { kind: "Field", name: { kind: "Name", value: "genre" } },
+                { kind: "Field", name: { kind: "Name", value: "notes" } },
+                { kind: "Field", name: { kind: "Name", value: "title" } },
+                { kind: "Field", name: { kind: "Name", value: "version" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AllAnotherMusicsQuery, AllAnotherMusicsQueryVariables>;
+export const AllLeggendariaMusicsDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "AllLeggendariaMusics" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "musics" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "where" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "difficulty" },
+                      value: {
+                        kind: "ObjectValue",
+                        fields: [
+                          {
+                            kind: "ObjectField",
+                            name: { kind: "Name", value: "_eq" },
+                            value: { kind: "StringValue", value: "LEGGENDARIA", block: false },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "bpm" } },
+                { kind: "Field", name: { kind: "Name", value: "difficulty" } },
+                { kind: "Field", name: { kind: "Name", value: "level" } },
+                { kind: "Field", name: { kind: "Name", value: "genre" } },
+                { kind: "Field", name: { kind: "Name", value: "notes" } },
+                { kind: "Field", name: { kind: "Name", value: "title" } },
+                { kind: "Field", name: { kind: "Name", value: "version" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AllLeggendariaMusicsQuery, AllLeggendariaMusicsQueryVariables>;
 export const AllMusicDocument = {
   kind: "Document",
   definitions: [
