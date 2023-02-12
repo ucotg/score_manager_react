@@ -1,9 +1,6 @@
 import { importedCSVData } from "../types/data";
 
-export const execute = (
-  csvText: string,
-  onSubmit: (title: string, anotherScore: number, leggendariaScore: number) => void
-) => {
+export const execute = (csvText: string, onSubmit: (submitSongs: importedCSVData) => void) => {
   const csvObject = csvText.split("\n").map((row) => row.split(","));
 
   const submitSongData: importedCSVData = csvObject.map((song) => {
@@ -15,7 +12,5 @@ export const execute = (
     };
   });
 
-  for (const song of submitSongData) {
-    onSubmit(song.title, song.anotherScore, song.leggendariaScore);
-  }
+  onSubmit(submitSongData);
 };

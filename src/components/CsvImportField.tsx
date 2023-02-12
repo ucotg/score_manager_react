@@ -8,6 +8,7 @@ import {
   UpdateLeggendariaScoreDocument,
 } from "../graphql/generated/graphql";
 import { execute } from "../functions/execute";
+import { importedCSVData } from "../types/data";
 
 export const CsvImportField: React.FC = () => {
   const [raw, setRaw] = useState<string>("");
@@ -19,17 +20,19 @@ export const CsvImportField: React.FC = () => {
     },
   });
 
-  const onSubmit = async (title: string, anotherScore: number, leggendariaScore: number) => {
-    try {
-      await updateAnotherScore({
-        variables: { title, exscore: anotherScore },
-      });
-      await updateLeggendariaScore({
-        variables: { title, exscore: leggendariaScore },
-      });
-    } catch (error) {
-      throw error;
-    }
+  const onSubmit = (submitSongs: importedCSVData) => {
+    submitSongs.map(async ({ title, anotherScore, leggendariaScore }) => {
+      try {
+        await updateAnotherScore({
+          variables: { title, exscore: anotherScore },
+        });
+        await updateLeggendariaScore({
+          variables: { title, exscore: leggendariaScore },
+        });
+      } catch (error) {
+        throw error;
+      }
+    });
   };
 
   return (
