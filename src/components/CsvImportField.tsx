@@ -11,8 +11,12 @@ import { execute } from "../functions/execute";
 
 export const CsvImportField: React.FC = () => {
   const [raw, setRaw] = useState<string>("");
-  const [updateAnotherScore] = useMutation(UpdateAnotherScoreDocument);
   const { refetch } = useQuery(AllMusicDocument);
+  const [updateAnotherScore] = useMutation(UpdateAnotherScoreDocument, {
+    onCompleted() {
+      refetch();
+    },
+  });
   const [updateLeggendariaScore] = useMutation(UpdateLeggendariaScoreDocument, {
     onCompleted() {
       refetch();
