@@ -14,19 +14,10 @@ export type SongData = {
   djRank: string;
 };
 
-export type importedCSVData = {
-  title: string;
-  anotherScore: number;
-  leggendariaScore: number;
-  lastPlayed: string;
-}[];
-
 export type TableSongData = {
-  level: number;
-  notes: number;
-  bpm: string;
-  genre: string;
-  exscore: number;
-  djRank: string;
-  scoreRate: string;
-}[];
+  [key: string]: {
+    anotherScore: number;
+    leggendariaScore: number;
+    lastPlayed: string;
+  };
+};
