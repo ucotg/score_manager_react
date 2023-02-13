@@ -18,6 +18,7 @@ const CsvImport: React.FC = () => {
             こちら
           </a>
         </p>
+        <Link to={`/musicData`}>楽曲一覧を表示</Link>
         <Link to={`/`}>ホームに戻る</Link>
       </div>
     </>
