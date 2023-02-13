@@ -1,4 +1,4 @@
-export const djRank = (showBody: boolean, isBody: boolean, notes: number, exscore: number): string => {
+export const djRank = (notes: number, exscore: number): string => {
   const max = notes * 2;
   const percentage: number = exscore / max;
 
