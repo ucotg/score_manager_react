@@ -20,3 +20,13 @@ export type importedCSVData = {
   leggendariaScore: number;
   lastPlayed: string;
 }[];
+
+export type TableSongData = {
+  level: number;
+  notes: number;
+  bpm: string;
+  genre: string;
+  exscore: number;
+  djRank: string;
+  scoreRate: string;
+}[];

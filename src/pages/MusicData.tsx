@@ -1,18 +1,23 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { AllMusicDocument } from "../graphql/generated/graphql";
+import { AllAnotherMusicsDocument, AllLeggendariaMusicsDocument } from "../graphql/generated/graphql";
 import MaterialReactTable, { MRT_ColumnDef } from "material-react-table";
-import { TextField, MenuItem } from "@mui/material";
+import { Typography, TextField, MenuItem } from "@mui/material";
 import { SongData } from "../types/data";
 import { convertVersionNumToStr } from "../functions/convertVersionNumToStr";
 import { djRank } from "../functions/djRank";
 
 const Register: React.FC = () => {
-  const { data, error, loading } = useQuery(AllMusicDocument);
+  const { data: dataAnother, loading: loadingAnother, error: errorAnother } = useQuery(AllAnotherMusicsDocument);
+  const {
+    data: dataLeggendaria,
+    loading: loadingLeggendaria,
+    error: errorLeggendaria,
+  } = useQuery(AllLeggendariaMusicsDocument);
 
-  const songs: SongData[] = data
-    ? data?.musics.map((song) => {
+  const songs: SongData[] = dataAnother
+    ? dataAnother?.musics.map((song) => {
         const version = convertVersionNumToStr(song.version);
         const exscore = song.exscore ? song.exscore : 0;
         const scoreRate = Math.floor((exscore / (song.notes * 2)) * 10000) / 100;
@@ -93,13 +98,13 @@ const Register: React.FC = () => {
 
   return (
     <>
-      <h1>楽曲一覧</h1>
-      <div>
+      <Typography variant="h1">楽曲一覧</Typography>
+      <Typography variant="h3">
         ログインは<Link to={`/login/`}>こちら</Link>
-      </div>
-      <div>
+      </Typography>
+      <Typography variant="h3">
         <Link to={`/`}>ホームに戻る</Link>
-      </div>
+      </Typography>
       <MaterialReactTable columns={columns} data={songs} muiTablePaperProps={{ sx: { mx: 2, boxShadow: "none" } }} />
     </>
   );
