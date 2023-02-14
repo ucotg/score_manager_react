@@ -13,6 +13,7 @@ export const CsvImportField: React.FC = () => {
   const { setCsv } = useContext(csvSongData);
   const {
     setValue,
+    setError,
     register,
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
@@ -20,8 +21,17 @@ export const CsvImportField: React.FC = () => {
   } = useForm<Input>();
 
   const onSubmit: SubmitHandler<Input> = (data) => {
-    setCsv(data.csv);
-    reset();
+    const csvToArray = data.csv.split("\n").map((row) => row.split(","));
+    try {
+      setCsv(data.csv);
+      reset();
+    } catch (error) {
+      alert(error);
+    }
+
+    if (csvToArray[0][0] !== "バージョン") {
+      setError("csv", { type: "validate", message: "正しくない入力形式です！" });
+    }
   };
 
   return (
@@ -33,6 +43,8 @@ export const CsvImportField: React.FC = () => {
         variant="outlined"
         multiline
         maxRows="8"
+        error={errors.csv != null}
+        helperText={errors.csv?.message}
       />
       <FormHelperText sx={{ color: "green", fontSize: 16 }}>
         {isSubmitSuccessful ? "～インポートが正常に完了しました～" : ""}
