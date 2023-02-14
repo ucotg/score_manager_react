@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://localhost:8080/v1/graphql",
+  uri: "https://scoremanager.hasura.app/v1/graphql",
   cache: new InMemoryCache(),
 });
 
