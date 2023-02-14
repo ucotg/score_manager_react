@@ -1,8 +1,5 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { useQuery } from "@apollo/client";
-import { NotesDocument } from "../graphql/generated/graphql";
 
 import { CsvImportField } from "../components/CsvImportField";
 
@@ -19,6 +16,7 @@ const CsvImport: React.FC = () => {
           </a>
         </p>
         <Link to={`/musicData`}>楽曲一覧を表示</Link>
+        <br />
         <Link to={`/`}>ホームに戻る</Link>
       </div>
     </>
