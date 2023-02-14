@@ -142,6 +142,7 @@ const Register: React.FC = () => {
         enableFilterMatchHighlighting={false}
         enableDensityToggle={false}
         enableRowActions={false}
+        state={{ isLoading: csv != null && data == null }}
       />
     </>
   );
