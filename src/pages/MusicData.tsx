@@ -90,8 +90,8 @@ const Register: React.FC = () => {
       filterFn: (row, _columnIds, filterValue) => row.getValue<string>("difficulty") === filterValue,
     },
     { header: "BPM", accessorKey: "bpm", size: 50 },
-    { header: "ノーツ数", accessorKey: "notes", size: 50 },
-    { header: "EX SCORE", accessorKey: "exscore", size: 50 },
+    { header: "ノーツ数", accessorKey: "notes", size: 50, enableColumnFilter: false },
+    { header: "EX SCORE", accessorKey: "exscore", size: 50, enableColumnFilter: false },
     { header: "DJ RANK", accessorKey: "djRank", size: 50 },
     { header: "SCORE RATE", accessorKey: "scoreRate", size: 50 },
     { header: "バージョン", accessorKey: "version", size: 50 },
@@ -130,7 +130,17 @@ const Register: React.FC = () => {
       <Typography variant="h3">
         <Link to={`/`}>ホームに戻る</Link>
       </Typography>
-      <MaterialReactTable columns={columns} data={songs} muiTablePaperProps={{ sx: { mx: 2, boxShadow: "none" } }} />
+      <MaterialReactTable
+        columns={columns}
+        data={songs}
+        enableFullScreenToggle={false}
+        muiTablePaperProps={{ sx: { mx: 2, boxShadow: "none" } }}
+        enableHiding={false}
+        enableColumnResizing={false}
+        enableFilterMatchHighlighting={false}
+        enableDensityToggle={false}
+        enableRowActions={false}
+      />
     </>
   );
 };
