@@ -1,16 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Box, Typography, TextField, Button, CircularProgress } from "@mui/material";
-import { useForm, SubmitHandler, FieldErrors, DefaultValues } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { csvSongData } from "../App";
-import { getSampleCsv } from "../functions/getSmapleCsv";
+import { SAMPLE_CSV } from "../functions/sampleCsv";
 
 type Input = {
   csv: string;
 };
 
 export const CsvImportField: React.FC = () => {
-  const [raw, setRaw] = useState<string>("");
   const { setCsv } = useContext(csvSongData);
   const {
     setValue,
@@ -38,16 +37,8 @@ export const CsvImportField: React.FC = () => {
       <Button type="submit" variant="outlined" size="large" disabled={isSubmitting}>
         {!isSubmitting ? "インポート" : <CircularProgress size={19} />}
       </Button>
-      <Button
-        type="button"
-        variant="outlined"
-        size="large"
-        onClick={() => {
-          setRaw(getSampleCsv());
-          console.log(getSampleCsv());
-        }}
-      >
-        サンプルCSVを入力
+      <Button type="button" variant="outlined" size="large" onClick={() => setValue("csv", SAMPLE_CSV)}>
+        {"サンプルCSVを入力(CSVがダウンロードできない場合)"}
       </Button>
     </form>
   );
