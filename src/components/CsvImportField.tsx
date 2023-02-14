@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Typography, TextField, Button, CircularProgress } from "@mui/material";
+import { Box, Typography, TextField, Button, CircularProgress, FormHelperText } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { csvSongData } from "../App";
@@ -34,6 +34,9 @@ export const CsvImportField: React.FC = () => {
         multiline
         maxRows="8"
       />
+      <FormHelperText sx={{ color: "green", fontSize: 16 }}>
+        {isSubmitSuccessful ? "～インポートが正常に完了しました～" : ""}
+      </FormHelperText>
       <Button type="submit" variant="outlined" size="large" disabled={isSubmitting}>
         {!isSubmitting ? "インポート" : <CircularProgress size={19} />}
       </Button>
