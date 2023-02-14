@@ -16,27 +16,29 @@ const Register: React.FC = () => {
   const tableSongData = execute(csv);
   const allMusics = data ? data.musics.filter((song) => song.exscore != null) : [];
 
-  const songs: SongData[] = allMusics.map((song) => {
-    const version = convertVersionNumToStr(song.version);
-    const exscore =
-      song.difficulty === "ANOTHER"
-        ? tableSongData[song.title].anotherScore
-        : tableSongData[song.title].leggendariaScore;
-    const scoreRate = Math.floor((exscore / (song.notes * 2)) * 10000) / 100;
-    const djRankDiff = djRank(song.notes, exscore);
-    return {
-      title: song.title,
-      level: song.level,
-      notes: song.notes,
-      bpm: song.bpm,
-      genre: song.genre,
-      difficulty: song.difficulty,
-      exscore: exscore,
-      version: version ? version : "",
-      scoreRate: `${scoreRate}%`,
-      djRank: djRankDiff,
-    };
-  });
+  const songs: SongData[] = csv
+    ? allMusics.map((song) => {
+        const version = convertVersionNumToStr(song.version);
+        const exscore =
+          song.difficulty === "ANOTHER"
+            ? tableSongData[song.title].anotherScore
+            : tableSongData[song.title].leggendariaScore;
+        const scoreRate = Math.floor((exscore / (song.notes * 2)) * 10000) / 100;
+        const djRankDiff = djRank(song.notes, exscore);
+        return {
+          title: song.title,
+          level: song.level,
+          notes: song.notes,
+          bpm: song.bpm,
+          genre: song.genre,
+          difficulty: song.difficulty,
+          exscore: exscore,
+          version: version ? version : "",
+          scoreRate: `${scoreRate}%`,
+          djRank: djRankDiff,
+        };
+      })
+    : [];
 
   const columns: MRT_ColumnDef<SongData>[] = [
     {
